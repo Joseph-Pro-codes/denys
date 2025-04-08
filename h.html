@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngoga Denny | Photography & Videography</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #5D5CDE;
+            --primary-dark: #4a49b7;
+            --text-light: #FFFFFF;
+            --text-dark: #181818;
+            --bg-light: #FFFFFF;
+            --bg-dark: #181818;
+            --accent: #FF6B6B;
+            --gray-light: #f3f4f6;
+            --gray-dark: #2a2a2a;
+        }
+        
+        html.dark {
+            --text: var(--text-light);
+            --bg: var(--bg-dark);
+            --gray: var(--gray-dark);
+        }
+        
+        html:not(.dark) {
+            --text: var(--text-dark);
+            --bg: var(--bg-light);
+            --gray: var(--gray-light);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .header-shadow {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .dark .header-shadow {
+            background-color: rgba(24, 24, 24, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .light .header-shadow {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+        }
+        
+        .gallery-item img, .gallery-item video {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img, .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .testimonial-card {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 header-shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl md:text-3xl font-bold">
+                <span class="text-primary">Ngoga</span> Denny
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" class="p-2 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 moon-icon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+            </button>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-gray z-50 p-4">
+            <button id="close-menu" class="absolute top-4 right-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <ul class="mt-12 space-y-4">
+                <li><a href="#home" class="mobile-nav-link block py-2">Home</a></li>
+                <li><a href="#about" class="mobile-nav-link block py-2">About</a></li>
+                <li><a href="#portfolio" class="mobile-nav-link block py-2">Portfolio</a></li>
+                <li><a href="#services" class="mobile-nav-link block py-2">Services</a></li>
+                <li><a href="#testimonials" class="mobile-nav-link block py-2">Testimonials</a></li>
+                <li><a href="#contact" class="mobile-nav-link block py-2">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center">
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <video class="object-cover w-full h-full" autoplay loop muted>
+                <!-- Replace this with your own video URL -->
+                <source src="https://d3js.org/logo.svg" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10 slide-in">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">Ngoga Denny</h1>
+            <h2 class="text-xl md:text-3xl text-white mb-8">Professional Photographer & Videographer</h2>
+            <p class="text-white text-lg md:text-xl max-w-2xl mb-10">Capturing moments that tell stories through the lens of creativity and passion.</p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#portfolio" class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full transition duration-300 ease-in-out inline-block text-center">View Portfolio</a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-black text-white border-2 border-white px-8 py-3 rounded-full transition duration-300 ease-in-out inline-block text-center">Get In Touch</a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#about" class="block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 slide-in" id="about-image">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-primary rounded-lg opacity-10 transform rotate-3"></div>
+                        <img src="https://picsum.photos/seed/photographer1/800/900" alt="Ngoga Denny" class="rounded-lg relative z-10 w-full max-w-md mx-auto">
+                    </div>
+                </div>
+                <div class="md:w-1/2 slide-in" id="about-text">
+                    <h3 class="text-primary uppercase tracking-wider text-sm font-semibold mb-4">About Me</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Passionate Visual Storyteller</h2>
+                    <p class="mb-6 text-lg">Welcome to my visual world. I'm Ngoga Denny, a professional photographer and videographer with over 10 years of experience capturing life's most precious moments and turning them into timeless art.</p>
+                    <p class="mb-6 text-lg">My journey behind the lens began as a hobby, but quickly evolved into a lifelong passion for visual storytelling. I believe that every frame has a story to tell, and I'm dedicated to finding the perfect angle, light, and moment to tell yours.</p>
+                    <p class="mb-8 text-lg">Whether I'm shooting a breathtaking landscape, an intimate wedding, or creating content for brands, my goal remains the same — to create authentic, emotion-filled visuals that stand the test of time.</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Photography</h4>
+                                <p>Professional quality</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Videography</h4>
+                                <p>Cinematic style</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-white">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold">Editing</h4>
+                                <p>Expert retouching</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full transition duration-300 ease-in-out">Work With Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 slide-in">
+                <h3 class="text-primary uppercase tracking-wider text-sm font-semibold mb-3">My Work</h3>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Portfolio Highlights</h2>
+                <p class="max-w-3xl mx-auto text-lg">Browse through a selection of my most memorable projects across different styles and subjects.</p>
+            </div>
+            
+            <!-- Portfolio Filters -->
+            <div class="flex flex-wrap justify-center mb-12 gap-4 slide-in">
+                <button class="filter-btn active px-6 py-2 rounded-full" data-filter="all">All</button>
+                <button class="filter-btn px-6 py-2 rounded-full" data-filter="photography">Photography</button>
+                <button class="filter-btn px-6 py-2 rounded-full" data-filter="videography">Videography</button>
+                <button class="filter-btn px-6 py-2 rounded-full" data-filter="commercial">Commercial</button>
+                <button class="filter-btn px-6 py-2 rounded-full" data-filter="portraits">Portraits</button>
+                <button class="filter-btn px-6 py-2 rounded-full" data-filter="events">Events</button>
+            </div>
+            
+            <!-- Portfolio Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 portfolio-gallery">
+                <!-- Gallery items -->
+                <div class="gallery-item slide-in" data-category="photography portraits">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/portrait1/800/600" alt="Portrait Photography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Portrait Session</h3>
+                                <p>Professional studio portraits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="photography events">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/wedding1/800/600" alt="Wedding Photography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Wedding Ceremony</h3>
+                                <p>Capturing special moments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="videography">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <!-- Placeholder for video - in production, this would be actual video content -->
+                        <img src="https://picsum.photos/seed/video1/800/600" alt="Videography Sample" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Short Film</h3>
+                                <p>Cinematic storytelling</p>
+                                <i class="fas fa-play text-2xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="photography commercial">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/product1/800/600" alt="Product Photography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Product Shoot</h3>
+                                <p>Commercial photography</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="videography commercial">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/advert1/800/600" alt="Commercial Video" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Brand Campaign</h3>
+                                <p>Marketing content</p>
+                                <i class="fas fa-play text-2xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="photography">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/landscape1/800/600" alt="Landscape Photography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Landscape Series</h3>
+                                <p>Nature's beauty captured</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="photography portraits">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/fashion1/800/600" alt="Fashion Photography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Fashion Editorial</h3>
+                                <p>Style and elegance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="events videography">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/concert1/800/600" alt="Event Videography" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Concert Highlights</h3>
+                                <p>Live event coverage</p>
+                                <i class="fas fa-play text-2xl mt-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item slide-in" data-category="photography events">
+                    <div class="overflow-hidden rounded-lg shadow-lg cursor-pointer h-72">
+                        <img src="https://picsum.photos/seed/corporate1/800/600" alt="Corporate Event" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div class="text-white text-center px-4">
+                                <h3 class="text-xl font-semibold mb-2">Corporate Event</h3>
+                                <p>Professional documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full transition duration-300 ease-in-out">Inquire About Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-image" class="lightbox-content">
+        <video id="lightbox-video" class="lightbox-content" controls>
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 slide-in">
+                <h3 class="text-primary uppercase tracking-wider text-sm font-semibold mb-3">What I Offer</h3>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Professional Services</h2>
+                <p class="max-w-3xl mx-auto text-lg">Specialized photography and videography services tailored to your specific needs.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-portrait text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Portrait Photography</h3>
+                    <p class="mb-6">Professional portraits for individuals, couples, and families that capture your authentic personality in studio or on location.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Professional lighting setup
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Multiple wardrobe changes
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Professional retouching
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-film text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Commercial Content</h3>
+                    <p class="mb-6">High-quality visual content for businesses including product photography, brand campaigns, and promotional videos.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Product photography
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Promotional videos
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Social media content
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Wedding & Events</h3>
+                    <p class="mb-6">Comprehensive coverage of special events with a focus on candid moments and storytelling through images and video.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Full day coverage
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Photo and video packages
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Custom wedding albums
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Documentary Filmmaking</h3>
+                    <p class="mb-6">Compelling visual storytelling for documentaries, short films, and narrative projects with a cinematic approach.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Concept development
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Professional editing
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Cinematic color grading
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-camera-retro text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Fine Art Photography</h3>
+                    <p class="mb-6">Artistic photography with a focus on composition, lighting, and emotion to create wall-worthy prints and collections.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Limited edition prints
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Gallery-quality production
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Creative conceptual work
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-gray p-8 rounded-lg shadow-lg transition-all hover:shadow-xl slide-in">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Workshops & Mentoring</h3>
+                    <p class="mb-6">Educational opportunities for aspiring photographers and videographers through workshops, one-on-one mentoring, and online courses.</p>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Group workshops
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            One-on-one mentoring
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            Online courses
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-primary font-medium hover:underline inline-flex items-center">
+                        Learn More
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 slide-in">
+                <h3 class="text-primary uppercase tracking-wider text-sm font-semibold mb-3">Client Feedback</h3>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">What People Say</h2>
+                <p class="max-w-3xl mx-auto text-lg">Don't just take my word for it. Here's what my clients have to say about their experience working with me.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person1/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Sarah Johnson</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Wedding Client</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic">"Ngoga captured our wedding day perfectly. Every emotion, every special moment was documented with care and creativity. The photos tell our story in a way that brings us back to that day every time we look at them."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person2/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">David Chen</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Business Owner</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic">"The product photos and videos Ngoga created for our company's marketing campaign exceeded our expectations. He has an eye for detail and understood exactly what we needed. Our sales increased significantly after the launch."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person3/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Emma Rodriguez</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Model</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic">"I've worked with many photographers throughout my career, but Ngoga stands out. He makes you feel comfortable in front of the camera and knows exactly how to capture your best angles. The portfolio he created for me opened many doors."</p>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person4/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Michael Thompson</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Event Organizer</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="italic">"We hired Ngoga for our annual corporate event, and it was the best decision. He was professional, unobtrusive, and delivered a fantastic mix of candid and formal shots. His video highlights reel was a huge hit with our team and clients."</p>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person5/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">Olivia Wilson</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Photography Student</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic">"Attending Ngoga's workshop transformed my approach to photography. His teaching style is clear and inspirational, and he's generous with his knowledge. I learned more in one day than I had in months of self-study."</p>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card bg-white dark:bg-gray-dark p-8 rounded-lg shadow-lg slide-in">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0 mr-4">
+                            <img src="https://picsum.photos/seed/person6/100/100" alt="Client" class="w-16 h-16 rounded-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg">James Williams</h4>
+                            <p class="text-gray-600 dark:text-gray-400">Film Director</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic">"Collaborating with Ngoga on our documentary project was a pleasure. His visual storytelling skills and technical expertise elevated our film. He has a unique ability to capture authentic moments that tell a powerful story."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 slide-in">
+                    <h3 class="text-primary uppercase tracking-wider text-sm font-semibold mb-3">Get In Touch</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Let's Work Together</h2>
+                    <p class="mb-8 text-lg">Ready to start your project? Fill out the form with your details and I'll get back to you as soon as possible to discuss how we can bring your vision to life.</p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex-shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p>Kigali, Rwanda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex-shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <p>contact@ngogadenny.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex-shrink-0 bg-primary rounded-full flex items-center justify-center text-white">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold mb-1">Phone</h4>
+                                <p>+250 7XX XXX XXX</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-xl mb-3">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 slide-in">
+                    <div class="bg-gray rounded-lg p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block mb-2 font-medium">Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg text-base focus:ring-2 focus:ring-primary focus:outline-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg text-base focus:ring-2 focus:ring-primary focus:outline-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block mb-2 font-medium">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg text-base focus:ring-2 focus:ring-primary focus:outline-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700" required>
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block mb-2 font-medium">Service</label>
+                                <select id="service" name="service" class="w-full px-4 py-3 rounded-lg text-base focus:ring-2 focus:ring-primary focus:outline-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700">
+                                    <option value="">Select a service</option>
+                                    <option value="portrait">Portrait Photography</option>
+                                    <option value="commercial">Commercial Content</option>
+                                    <option value="wedding">Wedding & Events</option>
+                                    <option value="documentary">Documentary Filmmaking</option>
+                                    <option value="fine-art">Fine Art Photography</option>
+                                    <option value="workshop">Workshops & Mentoring</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block mb-2 font-medium">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg text-base focus:ring-2 focus:ring-primary focus:outline-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition duration-300 ease-in-out">Send Message</button>
+                        </form>
+                        <div id="form-success" class="mt-4 hidden">
+                            <div class="p-4 bg-green-100 dark:bg-green-900 rounded-lg">
+                                <p class="text-green-700 dark:text-green-300 font-medium">Thank you! Your message has been sent successfully.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">
+                        <span class="text-primary">Ngoga</span> Denny
+                    </h2>
+                    <p class="mt-2 text-gray-400">Professional Photographer & Videographer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2023 Ngoga Denny. All rights reserved.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize dark mode
+        function initTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+                updateThemeIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeIcons(false);
+            }
+        }
+        
+        function updateThemeIcons(isDark) {
+            const sunIcon = document.querySelector('.sun-icon');
+            const moonIcon = document.querySelector('.moon-icon');
+            
+            if (isDark) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        }
+        
+        // Toggle dark/light mode
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            updateThemeIcons(isDark);
+        }
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+                updateThemeIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeIcons(false);
+            }
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        // Portfolio filtering
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            
+            items.forEach(item => {
+                const categories = item.dataset.category.split(' ');
+                
+                if (category === 'all' || categories.includes(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('bg-primary', 'text-white');
+                    btn.classList.remove('bg-transparent');
+                } else {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-transparent');
+                }
+            });
+        }
+        
+        // Lightbox functionality
+        function openLightbox(type, src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            
+            if (type === 'image') {
+                lightboxImage.src = src;
+                lightboxImage.style.display = 'block';
+                lightboxVideo.style.display = 'none';
+            } else if (type === 'video') {
+                lightboxVideo.src = src;
+                lightboxImage.style.display = 'none';
+                lightboxVideo.style.display = 'block';
+            }
+            
+            lightbox.style.display = 'flex';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            
+            lightbox.style.display = 'none';
+            lightboxVideo.pause();
+        }
+        
+        // Scroll animation
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.slide-in');
+            
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                
+                if (rect.top <= windowHeight * 0.85) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Contact form handling
+        function handleContactForm(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to your server
+            // For demo purposes, we'll just show a success message
+            document.getElementById('form-success').classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('form-success').classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            initTheme();
+            
+            // Set up event listeners
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+            document.getElementById('close-menu').addEventListener('click', toggleMobileMenu);
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+            
+            // Navigation active state
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Check for elements to animate
+                checkVisibility();
+            });
+            
+            // Portfolio filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    filterGallery(filter);
+                });
+            });
+            
+            // Gallery item click handlers
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const isVideo = this.dataset.category.includes('videography');
+                    const src = this.querySelector('img').src;
+                    
+                    if (isVideo) {
+                        // For demos, we're using images for video placeholders
+                        // In production, you would use actual video URLs
+                        openLightbox('image', src);
+                    } else {
+                        openLightbox('image', src);
+                    }
+                });
+            });
+            
+            // Lightbox close handler
+            document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+            
+            // Contact form submission
+            document.getElementById('contact-form').addEventListener('submit', handleContactForm);
+            
+            // Initial visibility check for animations
+            checkVisibility();
+            
+            // Style all filter buttons initially
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === 'all') {
+                    btn.classList.add('bg-primary', 'text-white');
+                } else {
+                    btn.classList.add('bg-transparent', 'text-gray-700', 'dark:text-gray-300', 'border', 'border-gray-300', 'dark:border-gray-700');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
