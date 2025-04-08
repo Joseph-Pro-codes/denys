@@ -135,20 +135,34 @@
 
 })();
 
-// const lightbox = GLightbox({
-//   selector: '.glightbox',
-//   touchNavigation: true,
-//   loop: true,
-//   openEffect: 'zoom',
-//   closeEffect: 'zoom',
-//   plyr: {
-//     config: {
-//       youtube: {
-//         noCookie: true,
-//         rel: 0,
-//         showinfo: 0,
-//         iv_load_policy: 3
-//       }
-//     }
-//   }
-// });
+document.addEventListener('DOMContentLoaded', function() {
+  const iso = new Isotope('.gallery-container', {
+      itemSelector: '.gallery-item',
+      layoutMode: 'fitRows'
+  });
+
+  // Filter items
+  document.querySelectorAll('.gallery-filters a').forEach(filterBtn => {
+      filterBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const filterValue = this.getAttribute('data-filter');
+          
+          // Remove active class from all buttons
+          document.querySelectorAll('.gallery-filters a').forEach(btn => 
+              btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Filter items
+          iso.arrange({ filter: filterValue });
+      });
+  });
+
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true
+  });
+});
