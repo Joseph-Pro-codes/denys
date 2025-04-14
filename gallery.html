@@ -45,27 +45,14 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home<br></a></li>
+          <li><a href="index.html" class="active">Home<br></a></li>
           <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="gallery.html" class="active"><span>Gallery</span> <i
+          <li class="dropdown"><a href="gallery.html"><span>Gallery</span> <i
                 class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="gallery.html" class="active">Nature</a></li>
-              <li><a href="gallery.html" class="active">People</a></li>
-              <li><a href="gallery.html" class="active">Architecture</a></li>
-              <li><a href="gallery.html" class="active">Animals</a></li>
-              <li><a href="gallery.html" class="active">Sports</a></li>
-              <li><a href="gallery.html" class="active">Travel</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                    class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
+              <li><a href="gallery.html">Vidoegraphy</a></li>
+              <li><a href="gallery.html">Photography</a></li>
+
             </ul>
           </li>
           <li><a href="services.html">Services</a></li>
@@ -73,38 +60,10 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-
-
     </div>
   </header>
 
   <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Gallery</h1>
-              <p class="mb-0" style="font-size: 16px;">Explore my collection of work and get inspired! From portraits to
-                stunning landscapes, every shot tells a story.</p>
-              <a href="contact.html" class="cta-btn">Available for Hire<br></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Gallery</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
-
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
       <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
@@ -113,208 +72,629 @@
           <div class="col-12">
             <div class="gallery-filters text-center">
               <a href="#" class="active" data-filter="*">All</a>
+              <a href="#" data-filter=".concerts">Concerts</a>
+              <a href="#" data-filter=".fashion">Fashion</a>
               <a href="#" data-filter=".nature">Nature</a>
-              <a href="#" data-filter=".people">People</a>
               <a href="#" data-filter=".sports">Sports</a>
-              <a href="#" data-filter=".events">Events</a>
-              <a href="#" data-filter=".education">Education</a>
+              <!-- <a href="#" data-filter=".education">Others</a> -->
             </div>
           </div>
         </div>
 
-        <!-- Existing Image Gallery -->
-        <div class="row gy-4 justify-content-center">
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
+        <!-- Gallery Container -->
+        <div class="row gy-4 justify-content-center" id="gallery-container">
+          <!-- Concerts (25 images) -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
             <div class="gallery-item h-100">
-              <img src="assets/img/gallery/1.jpg" class="img-fluid" alt="">
+              <img src="assets/img/all/concerts/1.JPG" class="img-fluid" alt="Concert Image 1">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/1.jpg" title="Intore Learning Community (ILC)"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Twaje festival/twaje_118.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Twaje festival/twaje_118.jpg" title="Twaje Fesitival"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Twaje festival/twaje_142.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Twaje festival/twaje_142.jpg" title="Twaje Fesitival"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img
-                src="assets/img/gallery/Random Shots/Snapinst.app_467593779_791819963051528_2388080373068841646_n_1080.jpg"
-                class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Random Shots/Snapinst.app_467593779_791819963051528_2388080373068841646_n_1080.jpg"
-                  title="Random Shot" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img
-                src="assets/img/gallery/Juno & shemi/Snapinst.app_460800668_825901363030179_4140844360346609977_n_1080.jpg"
-                class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Juno & shemi/Snapinst.app_460800668_825901363030179_4140844360346609977_n_1080.jpg"
-                  title="Juno @ ASYV" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Random Shots/1 v.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Random Shots/1 v.jpg" title="Nature" class="glightbox preview-link"><i
+                <a href="assets/img/all/concerts/1.JPG" title="Concert 1" class="glightbox preview-link"><i
                     class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
             <div class="gallery-item h-100">
-              <img
-                src="assets/img/gallery/Juno & shemi/Snapinst.app_460466101_904737324843461_551335520744001552_n_1080.jpg"
-                class="img-fluid" alt="">
+              <img src="assets/img/all/concerts/2.JPG" class="img-fluid" alt="Concert Image 2">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Juno & shemi/Snapinst.app_460466101_904737324843461_551335520744001552_n_1080.jpg"
-                  title="Juno @ ASYV" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img
-                src="assets/img/gallery/Juno & shemi/Snapinst.app_461031498_2315982875447857_856525966410327658_n_1080.jpg"
-                class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Juno & shemi/Snapinst.app_461031498_2315982875447857_856525966410327658_n_1080.jpg"
-                  title="Juno and Shemi @ ASYV" class="glightbox preview-link"><i
+                <a href="assets/img/all/concerts/2.JPG" title="Concert 2" class="glightbox preview-link"><i
                     class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 3 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/3.JPG" class="img-fluid" alt="Concert Image 3">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/3.JPG" title="Concert 3" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 4 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/4.JPG" class="img-fluid" alt="Concert Image 4">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/4.JPG" title="Concert 4" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 5 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/5.JPG" class="img-fluid" alt="Concert Image 5">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/5.JPG" title="Concert 5" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 6 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/6.JPG" class="img-fluid" alt="Concert Image 6">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/6.JPG" title="Concert 6" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 7 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/7.JPG" class="img-fluid" alt="Concert Image 7">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/7.JPG" title="Concert 7" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 8 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/8.JPG" class="img-fluid" alt="Concert Image 8">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/8.JPG" title="Concert 8" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 9 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/9.JPG" class="img-fluid" alt="Concert Image 9">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/9.JPG" title="Concert 9" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 10 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/10.JPG" class="img-fluid" alt="Concert Image 10">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/10.JPG" title="Concert 10" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 11 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/11.JPG" class="img-fluid" alt="Concert Image 11">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/11.JPG" title="Concert 11" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 12 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/12.JPG" class="img-fluid" alt="Concert Image 12">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/12.JPG" title="Concert 12" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 13 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/13.JPG" class="img-fluid" alt="Concert Image 13">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/13.JPG" title="Concert 13" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 14 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/14.JPG" class="img-fluid" alt="Concert Image 14">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/14.JPG" title="Concert 14" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 15 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/15.JPG" class="img-fluid" alt="Concert Image 15">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/15.JPG" title="Concert 15" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 16 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/16.JPG" class="img-fluid" alt="Concert Image 16">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/16.JPG" title="Concert 16" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 17 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/17.JPG" class="img-fluid" alt="Concert Image 17">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/17.JPG" title="Concert 17" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 18 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/18.JPG" class="img-fluid" alt="Concert Image 18">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/18.JPG" title="Concert 18" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 19 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/19.JPG" class="img-fluid" alt="Concert Image 19">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/19.JPG" title="Concert 19" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 20 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/20.JPG" class="img-fluid" alt="Concert Image 20">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/20.JPG" title="Concert 20" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 21 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/21.JPG" class="img-fluid" alt="Concert Image 21">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/21.JPG" title="Concert 21" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 22 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/22.JPG" class="img-fluid" alt="Concert Image 22">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/22.JPG" title="Concert 22" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 23 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/23.JPG" class="img-fluid" alt="Concert Image 23">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/23.JPG" title="Concert 23" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 24 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/24.JPG" class="img-fluid" alt="Concert Image 24">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/24.JPG" title="Concert 24" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Concerts 25 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 concerts">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/concerts/25.JPG" class="img-fluid" alt="Concert Image 25">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/concerts/25.JPG" title="Concert 25" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <!-- Fashion (12 images) -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
             <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Basket ball/ASYVVSKIGALIELIT_30a.jpg" class="img-fluid" alt="">
+              <img src="assets/img/all/fashion/1.jpg" class="img-fluid" alt="Fashion Image 1">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Basket ball/ASYVVSKIGALIELIT_30a.jpg" title="BasketBall"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/all/fashion/1.jpg" title="Fashion 1" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 2 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/2.jpg" class="img-fluid" alt="Fashion Image 2">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/2.jpg" title="Fashion 2" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 3 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/3.jpg" class="img-fluid" alt="Fashion Image 3">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/3.jpg" title="Fashion 3" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 4 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/4.jpg" class="img-fluid" alt="Fashion Image 4">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/4.jpg" title="Fashion 4" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 5 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/5.jpg" class="img-fluid" alt="Fashion Image 5">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/5.jpg" title="Fashion 5" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 6 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/6.jpg" class="img-fluid" alt="Fashion Image 6">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/6.jpg" title="Fashion 6" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 7 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/7.jpg" class="img-fluid" alt="Fashion Image 7">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/7.jpg" title="Fashion 7" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 8 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/8.jpg" class="img-fluid" alt="Fashion Image 8">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/8.jpg" title="Fashion 8" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 9 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/9.jpg" class="img-fluid" alt="Fashion Image 9">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/9.jpg" title="Fashion 9" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 10 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/10.jpg" class="img-fluid" alt="Fashion Image 10">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/10.jpg" title="Fashion 10" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 11 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/11.jpg" class="img-fluid" alt="Fashion Image 11">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/11.jpg" title="Fashion 11" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Fashion 12 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 fashion">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/fashion/12.jpg" class="img-fluid" alt="Fashion Image 12">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/fashion/12.jpg" title="Fashion 12" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <!-- Nature (10 images) -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
             <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Basket ball/ASYVVSKIGALIELITA_6.jpg" class="img-fluid" alt="">
+              <img src="assets/img/all/nature/1.jpg" class="img-fluid" alt="Nature Image 1">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Basket ball/ASYVVSKIGALIELITA_6.jpg" title="Basket Ball"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/all/nature/1.jpg" title="Nature 1" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 2 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/2.jpg" class="img-fluid" alt="Nature Image 2">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/2.jpg" title="Nature 2" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 3 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/3.jpg" class="img-fluid" alt="Nature Image 3">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/3.jpg" title="Nature 3" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 4 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/4.jpg" class="img-fluid" alt="Nature Image 4">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/4.jpg" title="Nature 4" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 5 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/5.jpg" class="img-fluid" alt="Nature Image 5">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/5.jpg" title="Nature 5" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 6 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/6.jpg" class="img-fluid" alt="Nature Image 6">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/6.jpg" title="Nature 6" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 7 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/7.jpg" class="img-fluid" alt="Nature Image 7">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/7.jpg" title="Nature 7" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 8 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/8.jpg" class="img-fluid" alt="Nature Image 8">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/8.jpg" title="Nature 8" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 9 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/9.jpg" class="img-fluid" alt="Nature Image 9">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/9.jpg" title="Nature 9" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Nature 10 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 nature">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/nature/10.jpg" class="img-fluid" alt="Nature Image 10">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/nature/10.jpg" title="Nature 10" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <!-- Sports (8 images) -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
             <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Basket ball/ASYVVSKIGALIELIT_8.jpg" class="img-fluid" alt="">
+              <img src="assets/img/all/sports/1.jpg" class="img-fluid" alt="Sports Image 1">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Basket ball/ASYVVSKIGALIELIT_8.jpg" title="Basket Ball"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/all/sports/1.jpg" title="Sports 1" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
-
-          <div class="col-xl-3 col-lg-4 col-md-6">
+          <!-- Sports 2 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
             <div class="gallery-item h-100">
-              <img src="assets/img/gallery/Basket ball/Weareback_23.jpg" class="img-fluid" alt="">
+              <img src="assets/img/all/sports/2.jpg" class="img-fluid" alt="Sports Image 2">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/Basket ball/Weareback_23.jpg" title="Basket Ball"
-                  class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-                <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                <a href="assets/img/all/sports/2.jpg" title="Sports 2" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 3 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/3.jpg" class="img-fluid" alt="Sports Image 3">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/3.jpg" title="Sports 3" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 4 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/4.jpg" class="img-fluid" alt="Sports Image 4">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/4.jpg" title="Sports 4" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 5 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/5.jpg" class="img-fluid" alt="Sports Image 5">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/5.jpg" title="Sports 5" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 6 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/6.jpg" class="img-fluid" alt="Sports Image 6">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/6.jpg" title="Sports 6" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 7 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/7.jpg" class="img-fluid" alt="Sports Image 7">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/7.jpg" title="Sports 7" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Sports 8 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 sports">
+            <div class="gallery-item h-100">
+              <img src="assets/img/all/sports/8.jpg" class="img-fluid" alt="Sports Image 8">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                <a href="assets/img/all/sports/8.jpg" title="Sports 8" class="glightbox preview-link"><i
+                    class="bi bi-arrows-angle-expand"></i></a>
+                <a href="#" class="details-link"><i class="bi bi-link-45deg"></i></a>
               </div>
             </div>
           </div>
 
         </div>
+        <!-- End Gallery Container -->
 
-        <!-- Video Gallery -->
-        <div class="row gy-4 justify-content-center mt-5">
-          <!-- Video 1 -->
-          <div class="col-xl-3 col-lg-4 col-md-6 gallery-item sports">
-            <div class="gallery-item h-100">
-              <div class="video-wrapper">
-                <iframe class="img-fluid" src="https://www.youtube.com/embed/r1D7N22TkKk" frameborder="0"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="https://youtu.be/r1D7N22TkKk" class="glightbox preview-link" title="Basketball Highlights">
-                  <i class="bi bi-play-circle"></i>
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <!-- Video 2 -->
-          <div class="col-xl-3 col-lg-4 col-md-6 gallery-item nature">
-            <div class="gallery-item h-100">
-              <div class="video-wrapper">
-                <iframe class="img-fluid" src="https://www.youtube.com/embed/9DtcSCFwDdw" frameborder="0"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="https://youtu.be/9DtcSCFwDdw" class="glightbox preview-link" title="Nature Documentary">
-                  <i class="bi bi-play-circle"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Video 3 -->
-          <div class="col-xl-3 col-lg-4 col-md-6 gallery-item events">
-            <div class="gallery-item h-100">
-              <div class="video-wrapper">
-                <iframe class="img-fluid" src="https://www.youtube.com/embed/6pxRHBw-k8M" frameborder="0"
-                  allowfullscreen></iframe>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="https://youtu.be/6pxRHBw-k8M" class="glightbox preview-link" title="Cultural Events">
-                  <i class="bi bi-play-circle"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -351,6 +731,11 @@
   </div> -->
 
   <!-- Vendor JS Files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.0.7/dist/js/glightbox.min.js"></script>
+
+
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>

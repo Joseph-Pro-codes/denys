@@ -166,3 +166,25 @@ document.addEventListener('DOMContentLoaded', function() {
       loop: true
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.querySelector('.gallery-grid');
+  // Initialize Masonry on the grid container
+  var msnry = new Masonry(grid, {
+    // each grid item selector
+    itemSelector: '.gallery-item',
+    // Optionally, set the column width (can be a fixed element or a percentage)
+    columnWidth: '.gallery-item',
+    // Enable percent-based positioning
+    percentPosition: true
+  });
+});
+
+
+(function () {
+  var container = document.getElementById('gallery-container');
+  for (var i = container.children.length; i >= 0; i--) {
+    container.appendChild(container.children[Math.floor(Math.random() * i)]);
+  }
+})();
