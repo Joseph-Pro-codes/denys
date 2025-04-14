@@ -1,17 +1,18 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-  --default-font: "Poppins",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Poppins",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
-:root { 
+:root {
   --background-color: #0a192f;
   --default-color: #fafafa;
   --heading-color: #ffffff;
@@ -45,7 +46,6 @@ body {
 :root {
   scroll-behavior: smooth;
 }
-
 
 /* Home section */
 
@@ -131,7 +131,7 @@ body {
 
 .btn {
   display: inline-block;
-  padding: .8rem 2.5rem;
+  padding: 0.8rem 2.5rem;
   background: var(--accent-color);
   border: 0.15rem solid var(--accent-color);
   border-radius: 4rem;
@@ -241,7 +241,6 @@ body {
   color: var(--accent-color);
 }
 
-
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
@@ -271,7 +270,6 @@ h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
-
 
 /* PHP Email Form Messages
 ------------------------------*/
@@ -457,7 +455,7 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -495,11 +493,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -511,7 +509,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -613,7 +611,7 @@ h6 {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
-  .navmenu .dropdown>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
@@ -640,7 +638,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
 }
@@ -650,7 +648,8 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   --background-color: color-mix(in srgb, var(--default-color), transparent 95%);
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
   color: var(--default-color);
   background-color: var(--background-color);
   font-size: 14px;
@@ -851,7 +850,8 @@ h6 {
 
 .page-title .heading {
   padding: 80px 0;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .page-title .heading h1 {
@@ -891,11 +891,11 @@ h6 {
   font-weight: 600;
 }
 
-.page-title nav ol li+li {
+.page-title nav ol li + li {
   padding-left: 10px;
 }
 
-.page-title nav ol li+li::before {
+.page-title nav ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -915,7 +915,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 66px;
@@ -1034,7 +1033,7 @@ section,
   border-radius: 10px;
 }
 
-.gallery{
+.gallery {
   padding: 2rem;
 }
 
@@ -1253,7 +1252,6 @@ section,
 }
 
 @media (max-width: 575px) {
-
   .gallery-details .swiper-button-prev,
   .gallery-details .swiper-button-next {
     display: none;
@@ -1468,7 +1466,8 @@ section,
 # Pricing Section
 --------------------------------------------------------------*/
 .pricing .pricing-item {
-  border-bottom: 1px dashed color-mix(in srgb, var(--default-color), transparent 60%);
+  border-bottom: 1px dashed
+    color-mix(in srgb, var(--default-color), transparent 60%);
   width: 100%;
   height: 100%;
   padding: 0 0 15px 0;
@@ -1531,8 +1530,8 @@ section,
   }
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
@@ -1543,19 +1542,19 @@ section,
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   color: var(--default-color);
   background: var(--accent-color);
   font-weight: 400;
@@ -1570,11 +1569,9 @@ section,
   letter-spacing: 1px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
 }
-
-
 
 @media screen and (max-width: 600px) {
   .home-img .img-box {
@@ -1588,7 +1585,7 @@ section,
 }
 
 @media screen and (max-width: 450px) {
-  .home-detail{
+  .home-detail {
     text-align: center;
   }
   .home-detail .btn-sci {
@@ -1599,11 +1596,9 @@ section,
     margin-left: 0;
     margin-bottom: 2rem;
   }
-
 }
 
 @media screen and (max-width: 795px) {
-
   .home {
     flex-direction: column-reverse;
     justify-content: center;
@@ -1614,7 +1609,6 @@ section,
     height: 35rem;
     width: 35rem;
   }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -1622,7 +1616,6 @@ section,
     height: 22rem;
     width: 22rem;
   }
-
 }
 
 .video-wrapper {
@@ -1682,32 +1675,99 @@ section,
   height: auto;
 }
 
+/* Masonry grid layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
 
-    /* Masonry grid layout */
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+.col-xl-3,
+.col-lg-4,
+.col-md-6 {
+  flex: 1 1 calc(25% - 16px);
+}
 
-    .col-xl-3, .col-lg-4, .col-md-6 {
-      flex: 1 1 calc(25% - 16px);
-    }
+@media (max-width: 1200px) {
+  .col-xl-3 {
+    flex: 1 1 calc(33.33% - 16px);
+  }
+}
 
-    @media (max-width: 1200px) {
-      .col-xl-3 {
-        flex: 1 1 calc(33.33% - 16px);
-      }
-    }
+@media (max-width: 992px) {
+  .col-lg-4 {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
 
-    @media (max-width: 992px) {
-      .col-lg-4 {
-        flex: 1 1 calc(50% - 16px);
-      }
-    }
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 1 1 100%;
+  }
+}
 
-    @media (max-width: 768px) {
-      .col-md-6 {
-        flex: 1 1 100%;
-      }
-    }
+/* Update the gallery section styles */
+.gallery {
+  padding: 2rem;
+}
+
+/* Add these new styles for the gallery container */
+.gallery .container-fluid {
+  max-width: 1400px; /* You can adjust this value based on your needs */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Update the row styles to ensure proper centering */
+.gallery .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* This centers the items horizontally */
+  margin: 0 auto; /* This helps center the entire row */
+}
+
+/* Update the column styles to maintain proper sizing */
+.gallery .col-xl-3,
+.gallery .col-lg-4,
+.gallery .col-md-6 {
+  flex: 0 0 calc(25% - 16px); /* Changed from flex: 1 1 to flex: 0 0 for more consistent sizing */
+  max-width: calc(25% - 16px);
+}
+
+/* Update responsive breakpoints */
+@media (max-width: 1200px) {
+  .gallery .col-xl-3 {
+    flex: 0 0 calc(33.33% - 16px);
+    max-width: calc(33.33% - 16px);
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery .col-lg-4 {
+    flex: 0 0 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery .col-md-6 {
+    flex: 0 0 calc(100% - 16px);
+    max-width: calc(100% - 16px);
+  }
+}
+
+/* Ensure gallery items maintain aspect ratio */
+.gallery .gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures images maintain their aspect ratio */
+}

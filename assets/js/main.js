@@ -188,3 +188,56 @@ document.addEventListener('DOMContentLoaded', function() {
     container.appendChild(container.children[Math.floor(Math.random() * i)]);
   }
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all filter buttons and gallery items
+  const filterButtons = document.querySelectorAll('.gallery-filters a');
+  const galleryItems = document.querySelectorAll('#gallery-container .col-xl-3');
+
+  // Add click event listeners to filter buttons
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Get filter value from data-filter attribute
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter gallery items
+      galleryItems.forEach(item => {
+        if (filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+          item.style.display = 'block'; // or 'flex' depending on your layout
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Initialize Isotope if you want masonry layout with filtering
+  // Note: You'll need to include Isotope library for this to work
+
+  const iso = new Isotope('#gallery-container', {
+    itemSelector: '.col-xl-3',
+    layoutMode: 'masonry',
+    masonry: {
+      gutter: 20
+    }
+  });
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      iso.arrange({
+        filter: this.getAttribute('data-filter')
+      });
+    });
+  });
+});
